@@ -1,0 +1,13 @@
+{
+  "cycler": {"enabled": true,"mode": "ordered","interval": 60,"index": 0},
+  "scenes":[
+    {"name":"Main","duration":60},
+    {"name":"BRB","duration":300},
+    {"name":"Gameplay","duration":120},
+    {"name":"Chatting","duration":90}
+  ],
+  "chaos":{"enabled":true,"votes":{}},
+  "analytics":{"viewerCount":0,"chatRate":0,"superChatCount":0,"superChatTotal":0},
+  "aiContext":{"suggestedScene":null},
+  "lastScene":null
+}
