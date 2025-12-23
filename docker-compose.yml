@@ -1,12 +1,21 @@
-version: "3"
+version: "3.9"
+
 services:
   obs-manager:
+    image: obs-youtube-manager:latest
     build: .
+    container_name: obs-youtube-manager
     ports:
-      - "3000:3000"
-      - "8080:8080"
+      - "3000:3000"   # HTTP dashboard & API
+      - "8080:8080"   # WebSocket dashboard
+      - "4455:4455"   # OBS WebSocket
     env_file:
       - .env
     volumes:
-      - ./data:/app/data
+      - ./data:/app/data    # persistent state
     restart: unless-stopped
+    command: >
+      bash -c "
+      obs --disable-gpu --headless --portable --minimize-to-tray --startstreaming &
+      node src/server.js
+      "
